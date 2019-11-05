@@ -1,9 +1,13 @@
-def call(args, cache) {
+def call(cmd, args, withoutCache="no") {
     assert args != null
-    assert cache != null
-    if(cache.equals("yes")) {
-        println(args)
-//        args = "--no-cache " + args
-        sh(script: "docker ${args}")
+    assert cmd != null
+    assert withoutCache != null
+    if (cmd.equals("build")) {
+        if (withoutCache.equals("yes")) {
+            args = "--no-cache " + args
+            sh(script: "docker ${cmd} ${args}")
+        }
+    } else {
+        sh(script: "docker ${cmd} ${args}")
     }
 }
