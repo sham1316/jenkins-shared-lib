@@ -1,4 +1,8 @@
-def call(args) {
+def call(args, cache) {
     assert args != null
-    sh(script: "docker ${args}")
+    assert cache != null
+    if(cache.equals("yes")) {
+        args += " --no-cache"
+        sh(script: "docker ${args}")
+    }
 }
