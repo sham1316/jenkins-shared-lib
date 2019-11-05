@@ -3,7 +3,7 @@ def call(args, cache) {
     assert cache != null
     if(cache.equals("yes")) {
         println(args)
-        args = "--no-cache" + args
+//        args = "--no-cache " + args
         sh(script: "docker ${args}")
     }
 }
