@@ -1,5 +1,3 @@
-import com.onurersen.jenkins.BuildConfig
-
 
 def call(def body = [:]) {
     config = BuildConfig.resolve(body)
