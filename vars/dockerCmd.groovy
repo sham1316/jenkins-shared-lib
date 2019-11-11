@@ -1,4 +1,10 @@
-def call(cmd, args, withoutCache="no") {
+import com.onurersen.jenkins.BuildConfig
+
+
+def call(def body = [:]) {
+    config = BuildConfig.resolve(body)
+
+    println(config)
     assert args != null
     assert cmd != null
     assert withoutCache != null
