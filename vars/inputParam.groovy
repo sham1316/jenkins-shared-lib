@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
 def call(Map config=[:], Closure body) {
-    node {
         stage('Use cache?') {
             when {
                 triggeredBy cause: "UserIdCause"
@@ -17,5 +16,4 @@ def call(Map config=[:], Closure body) {
             }
         }
         body()
-    }
 }
